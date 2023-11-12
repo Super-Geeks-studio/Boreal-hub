@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boreal Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-x8frMtkNq0z45ZQvA0WnjbZu5qwTf2ZlJmC+XmsZ9i43fc0NhOV3t+TwZ92YRlgTh6Q6pZc/7RcaM5hjRSD+eQ==" crossorigin="anonymous" />
+    <style>
+        /* Your existing styles here */
+
+        /* Side Navigation Menu styles */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+            transition: 0.5s;
+        }
+
+        .sidenav a {
+            padding: 15px 8px 15px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a i {
+            margin-right: 10px;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        #main {
+            transition: margin-left 0.5s;
+            padding: 16px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        header {
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 1em;
+        }
+
+        header img {
+            border-radius: 100px;
+            max-width: 100px; /* Adjust the width as needed */
+            height: auto;
+        }
+
+        .slider-container {
+          border-radius: 25px;
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slider-btns {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .slider-btn {
+            cursor: pointer;
+            padding: 10px;
+            margin: 0 5px;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        .product {
+            flex: 0 0 30%; /* Adjust the width as needed */
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em;
+            text-align: center;
+        }
+
+        .product img {
+          border-radius: 25px;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .product button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 80%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Circle Icons */
+        .circle-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .circle-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Footer styles */
+        footer {
+            border-radius: 25px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header with Three-Bar Icon and Logo -->
+<header>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+    <img src="/web_files/logo/boreal_hub_red.jpeg" alt="Logo">
+</header>
+
+<!-- Image Slider -->
+<div class="slider-container">
+    <div class="slider">
+        <div class="slide"><img src="slide1.jpg" alt="Slide 1"></div>
+        <div class="slide"><img src="slide2.jpg" alt="Slide 2"></div>
+        <div class="slide"><img src="slide3.jpg" alt="Slide 3"></div>
+        <!-- Add more slides as needed -->
+    </div>
+    <div class="slider-btns">
+        <button class="slider-btn" onclick="prevSlide()">&#8249;</button>
+        <button class="slider-btn" onclick="nextSlide()">&#8250;</button>
+    </div>
+</div>
+
+<!-- Side Navigation Menu -->
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#"><i class="fas fa-home"></i> Home</a>
+    <a href="#"><i class="fas fa-shopping-cart"></i> Products</a>
+    <a href="#"><i class="fas fa-shopping-bag"></i> Cart</a>
+</div>
+
+<!-- Content Area -->
+<div id="main">
+    <!-- Product Column -->
+    <div class="product">
+        <img src="product1.jpg" alt="Product 1">
+        <h2>Product 1</h2>
+        <p>Description of Product 1.</p>
+        <p>$19.99</p>
+        <button onclick="addToBag()">Add to Bag</button>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <div class="product">
+        <img src="product2.jpg" alt="Product 2">
+        <h2>Product 2</h2>
+        <p>Description of Product 2.</p>
+        <p>$24.99</p>
+        <button onclick="addToBag()">Add to Bag</button>
+        <button onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <!-- Add more product divs as needed -->
+
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2023 Your Company Name. All rights reserved.
+</footer>
+
+<!-- JavaScript for toggling the side navigation menu and slider functionality -->
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+
+    // Image Slider JavaScript
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        if (index >= slides.length) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = slides.length - 1;
+        } else {
+            currentSlide = index;
+        }
+        slider.style.transform = `translateX(${-currentSlide * 100}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // Add to Bag and Buy Now functions
+    function addToBag() {
+        // Add your logic for adding to the bag here
+        alert("Item added to bag!");
+    }
+
+    function buyNow() {
+        // Add your logic for the buy now functionality here
+        alert("Redirecting to checkout!");
+    }
+</script>
+
+</body>
+</html>
